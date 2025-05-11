@@ -16,4 +16,9 @@ public class CalculadoraController {
     public int sumar(@RequestParam int a, @RequestParam int b) {
         return calculadora.sumar(a, b);
     }
+
+    @GetMapping("/restar")
+    public int restar(@RequestParam int a, @RequestParam int b) {
+        return calculadora.restar(a, b);
+    }
 }
