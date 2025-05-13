@@ -1,4 +1,5 @@
-FROM jenkins/jenkins:lts
-USER root
-RUN apt-get update && apt-get install -y maven
-USER jenkins
+FROM openjdk:17-jdk-slim
+VOLUME /tmp
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT ["java", "-jar", "/app.jar"]
